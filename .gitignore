@@ -4,6 +4,9 @@
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+.idea/php.xml
+.idea/php-test-framework.xml
+.idea/php-docker-settings.xml
 
 # Generated files
 .idea/**/contentModel.xml
@@ -19,3 +22,4 @@
 
 /vendor/
 /composer.lock
+*.cache

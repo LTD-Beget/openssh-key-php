@@ -2,8 +2,7 @@
 
 namespace OpenSSH;
 
-use OpenSSH\internal\PublicKeyParser;
-use OpenSSH\PublicKey\Options;
+use OpenSSH\exceptions\MalformedKeyException;
 use OpenSSH\PublicKey\Type;
 
 class PublicKey
@@ -12,34 +11,16 @@ class PublicKey
     private $type;
     /** @var string */
     private $key;
-    /** @var string */
-    private $comment;
-    /** @var Options */
-    private $options;
 
     /**
      * PublicKey constructor.
      * @param Type $type
      * @param string $key
-     * @param string $comment
-     * @param Options|null $options
      */
-    public function __construct(Type $type, string $key, string $comment = '', Options $options = null)
+    public function __construct(Type $type, string $key)
     {
         $this->setType($type);
         $this->setKey($key);
-        $this->setComment($comment);
-        $this->setOptions($options ?? new Options());
-    }
-
-    /**
-     * @param string $key
-     * @return PublicKey
-     * @throws exceptions\MalformedKeyException
-     */
-    static function fromString(string $key): PublicKey
-    {
-        return (new PublicKeyParser($key))->parse();
     }
 
     /**
@@ -79,55 +60,17 @@ class PublicKey
     }
 
     /**
-     * @return string
-     */
-    public function getComment(): string
-    {
-        return $this->comment;
-    }
-
-    /**
-     * @param string $comment
      * @return PublicKey
+     * @throws MalformedKeyException
      */
-    public function setComment(string $comment): PublicKey
+    public function validate(): PublicKey
     {
-        $this->comment = trim($comment);
+        $decoded = base64_decode($this->getKey(), true);
+
+        if ($decoded === false || $this->getKey() !== base64_encode($decoded)) {
+            throw new MalformedKeyException('Malformed base64 encoding');
+        }
         return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasComment(): bool
-    {
-        return strlen($this->comment) > 0;
-    }
-
-    /**
-     * @return Options
-     */
-    public function getOptions(): Options
-    {
-        return $this->options;
-    }
-
-    /**
-     * @param Options $options
-     * @return PublicKey
-     */
-    public function setOptions(Options $options): PublicKey
-    {
-        $this->options = $options;
-        return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasOptions(): bool
-    {
-        return count($this->getOptions()) > 0;
     }
 
     /**
@@ -135,21 +78,6 @@ class PublicKey
      */
     public function toString(): string
     {
-        $parts = [
-            $this->getOptions()->toString(),
-            $this->getType()->getValue(),
-            $this->getKey(),
-            $this->getComment(),
-        ];
-
-        if (!$this->hasOptions()) {
-            array_shift($parts);
-        }
-
-        if (!$this->hasComment()) {
-            array_pop($parts);
-        }
-
-        return implode(' ', $parts);
+        return implode(' ', [$this->getType()->getValue(), $this->getKey()]);
     }
 }
