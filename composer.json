@@ -1,5 +1,5 @@
 {
-    "name": "dimistor/openssh-key",
+    "name": "dmryabov/openssh-key",
     "type": "library",
     "license": "MIT",
     "description": "Parse ssh keys in OpenSSH format",
