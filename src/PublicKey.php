@@ -65,6 +65,10 @@ class PublicKey
      */
     public function validate(): PublicKey
     {
+        if ($this->getKey() === '') {
+            throw new MalformedKeyException('Empty public key value');
+        }
+
         $decoded = base64_decode($this->getKey(), true);
 
         if ($decoded === false || $this->getKey() !== base64_encode($decoded)) {

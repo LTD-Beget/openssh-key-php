@@ -213,7 +213,12 @@ class AuthorizedKeyParser
         };
 
         $key = '';
-        $this->stream->ignoreHorizontalSpace();
+
+        if ($this->stream->currentAscii()->is(AsciiChar::SPACE())) {
+            $this->stream->next();
+        } else {
+            throw new AuthorizedKeyParsingException($this->stream);
+        }
 
         start:
         $char = $this->stream->currentAscii();

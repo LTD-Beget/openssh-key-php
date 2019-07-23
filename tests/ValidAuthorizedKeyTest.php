@@ -4,6 +4,7 @@ namespace OpenSSH\tests;
 
 use OpenSSH\AuthorizedKey;
 use OpenSSH\AuthorizedKey\Option;
+use OpenSSH\exceptions\MalformedKeyException;
 use OpenSSH\PublicKey;
 use OpenSSH\PublicKey\Type;
 use PHPUnit\Framework\TestCase;
@@ -11,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 class ValidAuthorizedKeyTest extends TestCase
 {
     /**
-     * @throws \OpenSSH\exceptions\MalformedKeyException
+     * @throws MalformedKeyException
      */
     public function testUsage(): void
     {
@@ -28,12 +29,11 @@ class ValidAuthorizedKeyTest extends TestCase
     }
 
     /**
-     * @throws \OpenSSH\exceptions\MalformedKeyException
+     * @throws MalformedKeyException
      */
     public function testOptions(): void
     {
-        $publicKey = (new PublicKey(Type::SSH_ED25519(), 'Zm9vYmFy'));
-        $publicKey->validate();
+        $publicKey = (new PublicKey(Type::SSH_ED25519(), 'Zm9vYmFy'))->validate();
 
         $authorizedKey = (new AuthorizedKey($publicKey))
             ->setOption((new Option\From())->setValue('192.168.0.0/16'))
@@ -48,10 +48,22 @@ class ValidAuthorizedKeyTest extends TestCase
     }
 
     /**
+     * @throws MalformedKeyException
+     */
+    public function testLeadingSpace(): void
+    {
+        $plainText = 'ssh-rsa dGVzdA==';
+
+        $key = AuthorizedKey::fromString('  ' . $plainText);
+
+        $this->assertEquals($plainText, $key->toString());
+    }
+
+    /**
      * @dataProvider plainTextKeysProvider
      *
      * @param string $plainText
-     * @throws \OpenSSH\exceptions\MalformedKeyException
+     * @throws MalformedKeyException
      */
     public function testInvariance(string $plainText): void
     {
