@@ -1,9 +1,9 @@
 <?php
 
-namespace OpenSSH\internal\exceptions;
+namespace LTDBeget\openssh\internal\exceptions;
 
 use LTDBeget\stringstream\StringStream;
-use OpenSSH\exceptions\MalformedKeyException;
+use LTDBeget\openssh\exceptions\MalformedKeyException;
 
 class AuthorizedKeyParsingException extends MalformedKeyException
 {

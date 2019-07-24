@@ -1,9 +1,9 @@
 <?php
 
-namespace OpenSSH\internal;
+namespace LTDBeget\openssh\internal;
 
-use OpenSSH\AuthorizedKey\Option;
-use OpenSSH\exceptions\MalformedKeyException;
+use LTDBeget\openssh\AuthorizedKey\Option;
+use LTDBeget\openssh\exceptions\MalformedKeyException;
 
 final class AuthorizedKeyOptionFactory
 {

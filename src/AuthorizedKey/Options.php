@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenSSH\AuthorizedKey;
+namespace LTDBeget\openssh\AuthorizedKey;
 
 class Options implements \Countable
 {

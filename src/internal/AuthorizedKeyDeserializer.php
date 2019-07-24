@@ -1,15 +1,15 @@
 <?php
 
-namespace OpenSSH\internal;
+namespace LTDBeget\openssh\internal;
 
-use OpenSSH\AuthorizedKey;
-use OpenSSH\AuthorizedKey\OptionNoValue;
-use OpenSSH\AuthorizedKey\OptionRepeated;
-use OpenSSH\AuthorizedKey\Options;
-use OpenSSH\AuthorizedKey\OptionSingle;
-use OpenSSH\exceptions\MalformedKeyException;
-use OpenSSH\PublicKey;
-use OpenSSH\PublicKey\Type;
+use LTDBeget\openssh\AuthorizedKey;
+use LTDBeget\openssh\AuthorizedKey\OptionNoValue;
+use LTDBeget\openssh\AuthorizedKey\OptionRepeated;
+use LTDBeget\openssh\AuthorizedKey\Options;
+use LTDBeget\openssh\AuthorizedKey\OptionSingle;
+use LTDBeget\openssh\exceptions\MalformedKeyException;
+use LTDBeget\openssh\PublicKey;
+use LTDBeget\openssh\PublicKey\Type;
 
 class AuthorizedKeyDeserializer
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace OpenSSH\AuthorizedKey\Option;
+namespace LTDBeget\openssh\AuthorizedKey\Option;
 
-use OpenSSH\AuthorizedKey\OptionSingle;
+use LTDBeget\openssh\AuthorizedKey\OptionSingle;
 
 class From extends OptionSingle
 {

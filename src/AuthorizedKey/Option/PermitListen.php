@@ -1,8 +1,8 @@
 <?php
 
-namespace OpenSSH\AuthorizedKey\Option;
+namespace LTDBeget\openssh\AuthorizedKey\Option;
 
-use OpenSSH\AuthorizedKey\OptionRepeated;
+use LTDBeget\openssh\AuthorizedKey\OptionRepeated;
 
 class PermitListen extends OptionRepeated
 {

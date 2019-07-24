@@ -1,9 +1,9 @@
 <?php
 
-namespace OpenSSH\tests;
+namespace LTDBeget\openssh\tests;
 
-use OpenSSH\AuthorizedKey;
-use OpenSSH\exceptions\MalformedKeyException;
+use LTDBeget\openssh\AuthorizedKey;
+use LTDBeget\openssh\exceptions\MalformedKeyException;
 use PHPUnit\Framework\TestCase;
 
 class InvalidAuthorizedKeyTest extends TestCase

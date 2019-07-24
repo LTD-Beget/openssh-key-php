@@ -1,11 +1,11 @@
 <?php
 
-namespace OpenSSH;
+namespace LTDBeget\openssh;
 
-use OpenSSH\AuthorizedKey\Option;
-use OpenSSH\AuthorizedKey\Options;
-use OpenSSH\exceptions\MalformedKeyException;
-use OpenSSH\internal\AuthorizedKeyParser;
+use LTDBeget\openssh\AuthorizedKey\Option;
+use LTDBeget\openssh\AuthorizedKey\Options;
+use LTDBeget\openssh\exceptions\MalformedKeyException;
+use LTDBeget\openssh\internal\AuthorizedKeyParser;
 
 class AuthorizedKey
 {

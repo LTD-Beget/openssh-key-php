@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenSSH\PublicKey;
+namespace LTDBeget\openssh\PublicKey;
 
 use MabeEnum\Enum;
 

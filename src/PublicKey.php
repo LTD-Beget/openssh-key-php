@@ -1,9 +1,9 @@
 <?php
 
-namespace OpenSSH;
+namespace LTDBeget\openssh;
 
-use OpenSSH\exceptions\MalformedKeyException;
-use OpenSSH\PublicKey\Type;
+use LTDBeget\openssh\exceptions\MalformedKeyException;
+use LTDBeget\openssh\PublicKey\Type;
 
 class PublicKey
 {

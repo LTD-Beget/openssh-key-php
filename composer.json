@@ -1,5 +1,5 @@
 {
-    "name": "dmryabov/openssh-key",
+    "name": "ltd-beget/openssh-key",
     "type": "library",
     "license": "MIT",
     "description": "Parse ssh keys in OpenSSH format",
@@ -11,15 +11,15 @@
     "require": {
         "php": ">=7.1",
         "marc-mabe/php-enum": "^2.0 || ^3.0",
-        "dmryabov/stringstream": "^v1.1"
+        "ltd-beget/stringstream": "^v1.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^7.0"
     },
     "autoload": {
-        "psr-4": { "OpenSSH\\":  "src/"}
+        "psr-4": { "LTDBeget\\openssh\\":  "src/"}
     },
     "autoload-dev": {
-        "psr-4": { "OpenSSH\\tests\\":  "tests/"}
+        "psr-4": { "LTDBeget\\openssh\\tests\\":  "tests/"}
     }
 }

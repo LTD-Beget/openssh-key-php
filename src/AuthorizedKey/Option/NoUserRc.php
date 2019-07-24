@@ -1,8 +1,8 @@
 <?php
 
-namespace OpenSSH\AuthorizedKey\Option;
+namespace LTDBeget\openssh\AuthorizedKey\Option;
 
-use OpenSSH\AuthorizedKey\OptionNoValue;
+use LTDBeget\openssh\AuthorizedKey\OptionNoValue;
 
 class NoUserRc extends OptionNoValue
 {

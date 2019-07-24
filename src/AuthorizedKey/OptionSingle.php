@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenSSH\AuthorizedKey;
+namespace LTDBeget\openssh\AuthorizedKey;
 
 abstract class OptionSingle extends Option
 {

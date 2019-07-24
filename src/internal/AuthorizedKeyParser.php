@@ -1,13 +1,13 @@
 <?php
 
-namespace OpenSSH\internal;
+namespace LTDBeget\openssh\internal;
 
 use LTDBeget\ascii\AsciiChar;
 use LTDBeget\stringstream\StringStream;
-use OpenSSH\AuthorizedKey;
-use OpenSSH\exceptions\MalformedKeyException;
-use OpenSSH\internal\exceptions\AuthorizedKeyParsingException;
-use OpenSSH\PublicKey\Type;
+use LTDBeget\openssh\AuthorizedKey;
+use LTDBeget\openssh\exceptions\MalformedKeyException;
+use LTDBeget\openssh\internal\exceptions\AuthorizedKeyParsingException;
+use LTDBeget\openssh\PublicKey\Type;
 
 class AuthorizedKeyParser
 {
