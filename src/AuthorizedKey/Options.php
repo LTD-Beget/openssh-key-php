@@ -35,6 +35,11 @@ class Options implements \Countable
         return isset($this->options[$name]);
     }
 
+    public function unset(string $name): void
+    {
+        unset($this->options[$name]);
+    }
+
     /**
      * @return string
      */

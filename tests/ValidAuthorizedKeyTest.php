@@ -50,6 +50,25 @@ class ValidAuthorizedKeyTest extends TestCase
     /**
      * @throws MalformedKeyException
      */
+    public function testUnsetOptions(): void
+    {
+        $publicKey     = (new PublicKey(Type::SSH_ED25519(), 'Zm9vYmFy'))->validate();
+        $option        = (new Option\Environment())->setValues(['foo=bar', 'empty=']);
+        $authorizedKey = (new AuthorizedKey($publicKey))
+            ->setOption($option)
+            ->setComment('admin@localhost');
+
+        $this->assertTrue($authorizedKey->hasOptions());
+        $this->assertSame($option, $authorizedKey->getOptions()->get($option::getName()));
+
+        $authorizedKey->unsetOption($option::getName());
+        $this->assertFalse($authorizedKey->hasOptions());
+        $this->assertNull($authorizedKey->getOptions()->get($option::getName()));
+    }
+
+    /**
+     * @throws MalformedKeyException
+     */
     public function testLeadingSpace(): void
     {
         $plainText = 'ssh-rsa dGVzdA==';
