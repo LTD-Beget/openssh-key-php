@@ -117,6 +117,13 @@ class AuthorizedKey
         return $this;
     }
 
+    public function unsetOption(string $name): AuthorizedKey
+    {
+        $this->options->unset($name);
+
+        return $this;
+    }
+
     /**
      * @return string
      */
