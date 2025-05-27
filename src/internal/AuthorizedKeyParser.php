@@ -81,7 +81,7 @@ class AuthorizedKeyParser
 
         start:
         $char = $this->stream->currentAscii();
-        if ($char->isLetter() || $char->isDigit() || $char->is(AsciiChar::HYPHEN())) {
+        if ($char->isLetter() || $char->isDigit() || $char->is(AsciiChar::HYPHEN()) || $char->is(AsciiChar::AT_SYMBOL()) || $char->is(AsciiChar::DOT())) {
             $type .= $this->stream->current();
             $this->stream->next();
             goto start;
